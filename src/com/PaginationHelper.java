@@ -3,20 +3,33 @@ package com;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * PoginationHelper.java - This is a class used to determine pagination based on array of values and items per page.
+ * @author  Pooja Vasudevan
+ */
 public class PaginationHelper<T> {
 
     int totalItemCount;
     int numItemsPerPage;
 
+    /**
+     * The constructor takes an array of values and a integer indicating the number of items per page
+     */
     public PaginationHelper(List<T> collection, int numItemsPerPage){
         this.totalItemCount = collection.size();
         this.numItemsPerPage = numItemsPerPage;
     }
 
+    /**
+     * returns the total number of items in the collection/array
+     */
     public int itemCount(){
         return totalItemCount;
     }
 
+    /**
+     * returns the total number of pages based on constructor inputs
+     */
     public int pageCount(){
         int numPages = totalItemCount/numItemsPerPage;
         if(totalItemCount%numItemsPerPage!=0){
@@ -26,6 +39,9 @@ public class PaginationHelper<T> {
         }
     }
 
+    /**
+     * returns the number of items on a page given the page index of interest
+     */
     public int pageItemCount(int pageIdx){
         int pageCount = this.pageCount();
 
@@ -40,9 +56,12 @@ public class PaginationHelper<T> {
         }
     }
 
+    /**
+     * returns the page index for an item index
+     */
     public int pageIndex(int itemIdx){
 
-        if(itemIdx <0 || itemIdx >=totalItemCount){
+        if(itemIdx < 0 || itemIdx >=totalItemCount){
             return -1;
         }
         return itemIdx/numItemsPerPage;
