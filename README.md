@@ -10,4 +10,9 @@ the src/com folder. The class has a constructor, which takes an array of values 
 - pageIndex: returns page index given an item idex.
 
 <h2> Unit Tests </h2>
-The unit tests for each method are defined and can be run under the main method. 
+The unit tests for each method are defined and can be run under the main method. The unit tests verify the following conditions and its boundary cases:
+- Total Items in Array exceeds Number Items per Page
+- Total Items in Array less than Number Items per Page
+- Number Items per Page = 0
+
+Any invalid page or item index will return -1. 
