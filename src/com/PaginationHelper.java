@@ -65,7 +65,7 @@ public class PaginationHelper<T> {
      */
     public int pageIndex(int itemIdx){
 
-        if(itemIdx < 0 || itemIdx >=totalItemCount || numItemsPerPage==0){
+        if(itemIdx < 0 || itemIdx >=totalItemCount || this.pageCount()==0){
             return -1;
         }
         return itemIdx/numItemsPerPage;
@@ -105,7 +105,6 @@ public class PaginationHelper<T> {
 
         ArrayList<Character> arr2 = new ArrayList<>();
         arr2.add('a');arr2.add('b');
-        //  char[] arr = {'a','b','c','d','e','f','b'};
         helper = new PaginationHelper(arr2, 3); //number of item < num items per page
 
         /**Tests to verify total item count**/
@@ -152,6 +151,10 @@ public class PaginationHelper<T> {
         System.out.println(helper.pageIndex(1)); //boundary conditions - upper limit
         System.out.println(helper.pageIndex(helper.itemCount())); //invalid index
         System.out.println(helper.pageIndex(-1));
+
+        System.out.println("If collection is empty");
+        helper = new PaginationHelper(new ArrayList<String>(), 2);
+        System.out.println("Page Count:" +helper.pageCount());
 
     }
 }
