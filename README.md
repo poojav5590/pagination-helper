@@ -10,7 +10,7 @@ the src/com folder. The class has a constructor, which takes an array of values 
 - pageIndex: returns page index given an item idex.
 
 <h2> Unit Tests </h2>
-<p> The unit tests for each method are defined and can be run under the main method. The unit tests verify the following conditions and its boundary cases: </p>
+<p> The unit tests for each method are defined and can be run under the main method of PaginationHelper.java class. The unit tests verify the following conditions and its boundary cases: </p>
 
 - Total Items in Array exceeds Number Items per Page
 - Total Items in Array less than Number Items per Page
