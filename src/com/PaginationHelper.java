@@ -82,25 +82,25 @@ public class PaginationHelper<T> {
 
         /**Tests to verify total item count**/
         System.out.println("Total Item Count: ");
-        System.out.println(helper.itemCount());
+        System.out.println(helper.itemCount()); //should = 7
 
         /**Tests to verify pageCount**/
         System.out.println("Page count: ");
-        System.out.println(helper.pageCount());
+        System.out.println(helper.pageCount()); // should = 4
 
         /**Tests to verify pageItemCount**/
         System.out.println("Tests to verify pageItemCount: ");
-        System.out.println(helper.pageItemCount(0)); //boundary conditions - lower limit
-        System.out.println(helper.pageItemCount(3)); // boundary conditions - upper limit
-        System.out.println(helper.pageItemCount(helper.pageCount())); // invalid page index
+        System.out.println(helper.pageItemCount(0)); //boundary conditions - lower limit (should = 2)
+        System.out.println(helper.pageItemCount(3)); // boundary conditions - upper limit (should = 1)
+        System.out.println(helper.pageItemCount(helper.pageCount())); // invalid page index (should = -1)
         System.out.println(helper.pageItemCount(-1));
 
         /**Tests to verify pageIndex**/
         System.out.println("Tests to verify pageIndex: ");
-        System.out.println(helper.pageIndex(0)); //boundary conditions - lower limit
-        System.out.println(helper.pageIndex(6)); //boundary conditions - upper limit
-        System.out.println(helper.pageIndex(3)); //boundary conditions - midway
-        System.out.println(helper.pageIndex(helper.itemCount())); //invalid index
+        System.out.println(helper.pageIndex(0)); //boundary conditions - lower limit (should = 0)
+        System.out.println(helper.pageIndex(6)); //boundary conditions - upper limit (should = 3)
+        System.out.println(helper.pageIndex(3)); //boundary conditions - midway (should =1 )
+        System.out.println(helper.pageIndex(helper.itemCount())); //invalid index (should = -1)
         System.out.println(helper.pageIndex(-1));
 
         ArrayList<Character> arr2 = new ArrayList<>();
@@ -109,23 +109,23 @@ public class PaginationHelper<T> {
 
         /**Tests to verify total item count**/
         System.out.println("Total Item Count: ");
-        System.out.println(helper.itemCount());
+        System.out.println(helper.itemCount()); //should = 2
 
         /**Tests to verify pageCount**/
         System.out.println("Page count: ");
-        System.out.println(helper.pageCount());
+        System.out.println(helper.pageCount()); //should = 1
 
         /**Tests to verify pageItemCount**/
         System.out.println("Tests to verify pageItemCount: ");
-        System.out.println(helper.pageItemCount(0)); //boundary conditions - lower limit
-        System.out.println(helper.pageItemCount(helper.pageCount())); // invalid page index
+        System.out.println(helper.pageItemCount(0)); //boundary conditions - lower limit (should = 2)
+        System.out.println(helper.pageItemCount(helper.pageCount())); // invalid page index (should = -1)
         System.out.println(helper.pageItemCount(-1));
 
         /**Tests to verify pageIndex**/
         System.out.println("Tests to verify pageIndex: ");
-        System.out.println(helper.pageIndex(0)); //boundary conditions - lower limit
-        System.out.println(helper.pageIndex(1)); //boundary conditions - upper limit
-        System.out.println(helper.pageIndex(helper.itemCount())); //invalid index
+        System.out.println(helper.pageIndex(0)); //boundary conditions - lower limit (should = 0)
+        System.out.println(helper.pageIndex(1)); //boundary conditions - upper limit (should = 0)
+        System.out.println(helper.pageIndex(helper.itemCount())); //invalid index (should = -1)
         System.out.println(helper.pageIndex(-1));
 
 
@@ -133,14 +133,14 @@ public class PaginationHelper<T> {
 
         /**Tests to verify total item count**/
         System.out.println("Total Item Count: ");
-        System.out.println(helper.itemCount());
+        System.out.println(helper.itemCount()); // should = 2
 
         /**Tests to verify pageCount**/
         System.out.println("Page count: ");
-        System.out.println(helper.pageCount());
+        System.out.println(helper.pageCount()); //should = 0
 
         /**Tests to verify pageItemCount**/
-        System.out.println("Tests to verify pageItemCount: ");
+        System.out.println("Tests to verify pageItemCount: "); // should be -1 since pagecount = 0
         System.out.println(helper.pageItemCount(0)); //boundary conditions - lower limit
         System.out.println(helper.pageItemCount(helper.pageCount())); // invalid page index
         System.out.println(helper.pageItemCount(-1));
@@ -154,7 +154,7 @@ public class PaginationHelper<T> {
 
         System.out.println("If collection is empty");
         helper = new PaginationHelper(new ArrayList<String>(), 2);
-        System.out.println("Page Count:" +helper.pageCount());
+        System.out.println("Page Count:" +helper.pageCount()); // should = 0
 
     }
 }
