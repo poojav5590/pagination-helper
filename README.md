@@ -2,7 +2,7 @@
 
 <h2>Overview</h2>
 <p>This project creates a Pagination Helper class, which can be used to design pagination UI components and consists of units tests. This class can be found under
-the src/com folder. The class has a constructor, which takes an array of values and number of items per page, and consists of the following methods: </p>
+the src/com folder. The class has a constructor, which takes a collection of values and number of items per page, and consists of the following methods: </p>
 
 - itemCount : returns total number of items defined in the collection
 - pageCount: returns total number of pages based on items per page
