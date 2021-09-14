@@ -78,7 +78,7 @@ public class PaginationHelperTest {
     @ParameterizedTest(name = "Item index {0} returns page index: {1}")
     @MethodSource("pageIndexParameters")
     void testPageIndexIfItemsPerPageLess(int itemIndex, int pageIndex){
-        assertEquals(pageIndex, helper.pageIndex(itemIndex), "Total Items on Page Index " +itemIndex+" :");
+        assertEquals(pageIndex, helper.pageIndex(itemIndex), "Page Index of following item index " +itemIndex+" :");
     }
 
 
@@ -107,7 +107,7 @@ public class PaginationHelperTest {
     @ParameterizedTest(name = "Item index {0} returns page index: {1}")
     @MethodSource("pageIndexParametersItemsPerPageGreater")
     void testPageIndexIfItemsPerPageGreater(int itemIndex, int pageIndex){
-        assertEquals(pageIndex, helper2.pageIndex(itemIndex), "Total Items on Page Index " +itemIndex+" :");
+        assertEquals(pageIndex, helper2.pageIndex(itemIndex), "Page index on following item index " +itemIndex+" :");
     }
 
     private static Stream<Arguments> pageCountZeroParameters() {
@@ -127,13 +127,13 @@ public class PaginationHelperTest {
     @ParameterizedTest
     @MethodSource("pageCountZeroParameters")
     void testPageItemCountWhenPageCountIsZero(PaginationHelper helper){
-        assertEquals(-1, helper.pageItemCount(0), "Total Page Item Count ");
+        assertEquals(-1, helper.pageItemCount(0), "Invalid page index: ");
     }
 
     @ParameterizedTest
     @MethodSource("pageCountZeroParameters")
     void testPageIndexWhenPageCountIsZero(PaginationHelper helper){
-        assertEquals(-1, helper.pageIndex(0), "Total Page Item Count ");
+        assertEquals(-1, helper.pageIndex(0), "Invalid item index: ");
     }
 
 }
