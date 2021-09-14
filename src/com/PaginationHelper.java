@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * PoginationHelper.java - This is a class used to determine pagination based on array of values and items per page.
+ * PoginationHelper.java - This is a class used to determine pagination based on array of items and items per page.
  * @author  Pooja Vasudevan
  */
 public class PaginationHelper<T> {
@@ -21,7 +21,7 @@ public class PaginationHelper<T> {
     }
 
     /**
-     * returns the total number of items in the collection/array
+     * returns the total number of items in the collection
      */
     public int itemCount(){
         return totalItemCount;
