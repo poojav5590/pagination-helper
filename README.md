@@ -19,8 +19,8 @@ the src/com folder. The class has a constructor, which takes a collection of val
 
 <p> These conditions and its boundary cases are verified in the following methods:</p>
 
-- testItemCount: verifies total item count is as expected
-- testPageCount: verifies total page count is as expected
+- testItemCount: verifies total item count is as expected for all cases
+- testPageCount: verifies total page count is as expected for all cases
 - testPageItemCountIfItemsPerPageLess: verifies page item count for given page index when items per page is less than total item count
 - testPageIndexIfItemsPerPageLess: verifies page index for an item index when items per page is less than total item count
 - testPageItemCountIfItemsPerPageGreater: verifies page item count for given page index when items per page is greater than total item count
