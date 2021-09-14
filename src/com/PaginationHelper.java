@@ -13,7 +13,7 @@ public class PaginationHelper<T> {
     int numItemsPerPage;
 
     /**
-     * The constructor takes an array of values and a integer indicating the number of items per page
+     * The constructor takes a collection of values and a integer indicating the number of items per page
      */
     public PaginationHelper(List<T> collection, int numItemsPerPage){
         this.totalItemCount = collection.size();
