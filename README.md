@@ -15,6 +15,7 @@ the src/com folder. The class has a constructor, which takes a collection of val
 - Total Items in collection exceeds Number Items per Page
 - Total Items in collection less than Number Items per Page
 - Number Items per Page = 0 or Empty Collection
+- Even Distribution of Items across all Pages
 
 <p> These conditions and its boundary cases are verified in the following methods:</p>
 
@@ -27,6 +28,8 @@ the src/com folder. The class has a constructor, which takes a collection of val
 - testPageCountWhenZero: verifies pagecount is 0 when Number Items per Page = 0 or Empty Collection
 - testPageItemCountWhenPageCountIsZero: verifies page item count is -1 when Number Items per Page = 0 or Empty Collection
 - testPageIndexWhenPageCountIsZero: verifies page index is -1 when Number Items per Page = 0 or Empty Collection
+- testEvenDistributionPageItemCount: verifies page item count when all pages have the same number of items given a page index
+- testEvenDistributionPageIndex: verifies page index given an item idex when all pages have same number of items.
 
 
 Any invalid page or item index will return -1. 
