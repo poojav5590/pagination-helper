@@ -1,6 +1,5 @@
 package com;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -53,7 +52,7 @@ public class PaginationHelper<T> {
             return -1;
         }
 
-        if(pageIdx == pageCount -1){
+        if((totalItemCount % numItemsPerPage != 0) && (pageIdx == pageCount -1)){
             return totalItemCount%numItemsPerPage;
         } else {
             return numItemsPerPage;
@@ -71,5 +70,5 @@ public class PaginationHelper<T> {
         return itemIdx/numItemsPerPage;
 
     }
-
+    
 }

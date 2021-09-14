@@ -14,6 +14,7 @@ public class PaginationHelperTest {
 
     static PaginationHelper helper;
     static PaginationHelper helper2;
+    static PaginationHelper helper3;
 
     @BeforeAll
     public static void initialize(){
@@ -26,12 +27,18 @@ public class PaginationHelperTest {
         ArrayList<Character> itemList2 = new ArrayList<>();
         itemList2.add('a');itemList2.add('b');
         helper2 = new PaginationHelper(itemList2, 3);
+
+        //Even distribution of item across pages
+        ArrayList<Character> itemList3 = new ArrayList<>();
+        itemList3.add('a');itemList3.add('b');itemList3.add('x');itemList3.add('j');
+        helper3 = new PaginationHelper(itemList3, 2);
     }
 
     private static Stream<Arguments> itemCountParameters() {
         return Stream.of(
                 Arguments.of(helper, 7),
-                Arguments.of(helper2, 2)
+                Arguments.of(helper2, 2),
+                Arguments.of(helper3, 4)
         );
     }
     @ParameterizedTest
@@ -43,7 +50,8 @@ public class PaginationHelperTest {
     private static Stream<Arguments> pageCountParameters() {
         return Stream.of(
                 Arguments.of(helper, 4),
-                Arguments.of(helper2, 1)
+                Arguments.of(helper2, 1),
+                Arguments.of(helper3, 2)
         );
     }
     @ParameterizedTest
@@ -81,8 +89,6 @@ public class PaginationHelperTest {
         assertEquals(pageIndex, helper.pageIndex(itemIndex), "Page Index of following item index " +itemIndex+" :");
     }
 
-
-
     private static Stream<Arguments> pageItemCountParametersItemsPerPageGreater() {
         return Stream.of(
                 Arguments.of(0, 2),
@@ -110,12 +116,41 @@ public class PaginationHelperTest {
         assertEquals(pageIndex, helper2.pageIndex(itemIndex), "Page index on following item index " +itemIndex+" :");
     }
 
+    private static Stream<Arguments> evenPageItemCountDistributionParameters() {
+        return Stream.of(
+                Arguments.of(0, 2),
+                Arguments.of(1, 2),
+                Arguments.of(2, -1),
+                Arguments.of(-1, -1)
+        );
+    }
+    @ParameterizedTest(name = "Page index {0} returns {1}")
+    @MethodSource("evenPageItemCountDistributionParameters")
+    void testEvenDistributionPageItemCount(int pageIndex, int expectedItemCount){
+        assertEquals(expectedItemCount, helper3.pageItemCount(pageIndex), "Total Items on Page Index " +pageIndex+" :");
+    }
+
+    private static Stream<Arguments> evenPageIndexParameters() {
+        return Stream.of(
+                Arguments.of(1, 0),
+                Arguments.of(3, 1),
+                Arguments.of(4, -1),
+                Arguments.of(-1, -1)
+        );
+    }
+    @ParameterizedTest(name = "Item index {0} returns page index: {1}")
+    @MethodSource("evenPageIndexParameters")
+    void testEvenDistributionPageIndex(int itemIndex, int pageIndex){
+        assertEquals(pageIndex, helper3.pageIndex(itemIndex), "Page index on following item index " +itemIndex+" :");
+    }
+
     private static Stream<Arguments> pageCountZeroParameters() {
         ArrayList<Character> itemList = new ArrayList<>();
         itemList.add('x');itemList.add('b');
         return Stream.of(
                 Arguments.of(new PaginationHelper(itemList, 0)),
-                Arguments.of(new PaginationHelper(new ArrayList<Character>(), 2))
+                Arguments.of(new PaginationHelper(new ArrayList<Character>(), 2)),
+                Arguments.of(new PaginationHelper(itemList, -1))
         );
     }
     @ParameterizedTest
