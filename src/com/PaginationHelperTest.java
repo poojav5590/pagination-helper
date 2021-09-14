@@ -10,6 +10,10 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * PoginationHelperTest.java - This is a class used to test the functions defined in PaginationHelper.java
+ * @author  Pooja Vasudevan
+ */
 public class PaginationHelperTest {
 
     static PaginationHelper helper;
